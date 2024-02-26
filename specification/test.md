@@ -1,3 +1,8 @@
+---
+"orphan": true
+"nosearch": true
+---
+
 # Test page
 
 This page exists to try out some rendering options and markdown syntax.

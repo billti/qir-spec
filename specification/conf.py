@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'QIR specifications'
-html_short_title = 'QIR specs'
+html_short_title = 'QIR specifications'
 copyright = '2024, QIR Alliance'
 author = 'QIR Alliance'
 
