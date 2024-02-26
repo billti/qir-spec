@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Install the main sphinx package, the piccolo theme, and the Markdown parser
+pip install sphinx==7.2
+pip install piccolo-theme==0.19
+pip install myst-parser==2.0
+
+sphinx-build -M html "specification" "site"
