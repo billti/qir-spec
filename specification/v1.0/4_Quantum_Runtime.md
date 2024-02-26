@@ -35,6 +35,3 @@ Any measurements or resets applied upon release are at the discretion of the
 target as well; for the quantum algorithm to be correct, the qubits that are to
 be released hence should be unentangled from qubits that remain live prior to
 invoking the release function.
-
----
-_[Back to index](README.md)_

@@ -36,7 +36,7 @@ The signatures of the callables should match the source language signature. For
 instance, the base version of a callable that takes a floating-point number
 "theta" and a qubit "qb" and returns a result would generate:
 
-```LLVM
+```text
 define %Result *Some__Namespace__Symbol__body (double theta, %Qubit *qb)
 {
   ; code goes here
@@ -100,7 +100,7 @@ tail calls.
 For instance, for a callable named `Some.Namespace.Symbol` with all four
 specializations, the compiler should generate the following in LLVM:
 
-```LLVM
+```text
 define void Some__Namespace__Symbol__body__wrapper (%Tuple* capture,
     %Tuple* args, %Tuple* result)
 {
@@ -213,7 +213,7 @@ after functor application, the `__quantum__rt__callable_copy` routine may be
 used to create a new copy of the original `%Callable`; the functor may then be
 applied to the new `%Callable`. For instance, to implement the following:
 
-```qsharp
+```text
 let f = someOp;
 let g = Adjoint f;
 // ... code that uses both f and g ...
@@ -387,6 +387,3 @@ callable values:
 | __quantum__rt__callable_update_alias_count | `void(%Callable*, i32)`                      | Adds the given integer value to the alias count for the callable. Fails if the count becomes negative. The call should be ignored if the given `%Callable*` is a null pointer. |
 | __quantum__rt__capture_update_reference_count | `void(%Callable*, i32)`                      | Invokes the function at index 0 in the memory management table of the callable with the capture tuple and the given 32-bit integer. Does nothing if if the memory management table pointer or the function pointer at that index is null, or if the given `%Callable*` is a null pointer. |
 | __quantum__rt__capture_update_alias_count | `void(%Callable*, i32)`                      | Invokes the function at index 1 in the memory management table of the callable with the capture tuple and the given 32-bit integer. Does nothing if the memory management table pointer or the function pointer at that index is null, or if the given `%Callable*` is a null pointer. |
-
----
-_[Back to index](README.md)_

@@ -66,6 +66,3 @@ reference counts as hints or as simple no-ops.
   negative; decreasing the alias count below 0 results in a runtime failure.
 - The functions that modify reference and alias count should accept a null
   instance pointer and simply ignore the call if the pointer is null.
-
----
-_[Back to index](README.md)_

@@ -320,6 +320,3 @@ of qubits. See [here](4_Quantum_Runtime.md#qubits) for these functions.
 
 For all of these functions, if an `%Array*` pointer is null, a runtime failure
 should occur.
-
----
-_[Back to index](README.md)_

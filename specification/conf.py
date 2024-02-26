@@ -17,6 +17,7 @@ author = 'QIR Alliance'
 extensions = ['myst_parser']
 myst_enable_extensions = ['amsmath', 'dollarmath', "colon_fence"]
 source_suffix = ['.rst', '.md']
+myst_heading_anchors = 3
 
 templates_path = ['_templates']
 exclude_patterns = ['under_development']
