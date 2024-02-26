@@ -9,4 +9,5 @@ Welcome to the home page of the QIR specifications.
 v0.1/index.md
 v1.0/index.md
 testing.md
+README.md
 ```
