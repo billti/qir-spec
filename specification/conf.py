@@ -19,7 +19,7 @@ myst_enable_extensions = ['amsmath', 'dollarmath', "colon_fence"]
 source_suffix = ['.rst', '.md']
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['under_development']
 
 
 # -- Options for HTML output -------------------------------------------------

@@ -13,5 +13,5 @@ Version 1.0 of the QIR specification was publish on March 27th, 2024.
 5_Metadata.md
 6_Code_Generation.md
 7_Profiles.md
-8_Library_References.md
+8_Library_Reference.md
 ```
