@@ -3,6 +3,7 @@ name: Publish site
 on:
   push:
     branches: ["billti/updates"]
+  workflow_dispatch:
 
 permissions:
   contents: read
