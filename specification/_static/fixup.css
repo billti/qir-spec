@@ -1,0 +1,4 @@
+/* Needed as some LLVM snippets are invalid in Pygments */
+.highlight .err {
+    border: none !important; /* Removes the red border */
+}

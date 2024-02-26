@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Install the main sphinx package, the piccolo theme, and the Markdown parser
+# Assume if sphinx is already installed, then setup already ran once
+
+if pip show sphinx > /dev/null 2>&1; then
+  echo "Sphinx package found"
+else
+  echo "Sphinx package not found"
+  pip install sphinx==7.2
+  pip install piccolo-theme==0.19
+  pip install myst-parser==2.0
+fi
+
+sphinx-build -M html "specification" "_site"
+
+# To run locally: python -m http.server --directory _site/html
