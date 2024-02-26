@@ -14,4 +14,4 @@ fi
 
 sphinx-build -M html "specification" "_site"
 
-# To run locally: python -m http.server --directory site/html
+# To run locally: python -m http.server --directory _site/html
