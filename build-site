@@ -12,6 +12,6 @@ else
   pip install myst-parser==2.0
 fi
 
-sphinx-build -M html "specification" "site"
+sphinx-build -M html "specification" "_site"
 
 # To run locally: python -m http.server --directory site/html
