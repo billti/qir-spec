@@ -26,6 +26,8 @@ jobs:
       - name: Build
         run: ./build-site
       - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/html
 
   deploy:
     needs: build
