@@ -5,15 +5,46 @@
 
 # Authoring
 
+The web site for the specification is generated using the [Sphinx](https://www.sphinx-doc.org/)
+Python package along with the [MyST](https://myst-parser.readthedocs.io/) package for using
+Markdown instead of reStructuredText (.rst) files for content.
+
 This page will outline the dos and don't of writing Markdown to render correctly.
 
-In general, stick with common Markdown constructs. For example,
+In general, stick with [common Markdown constructs](https://daringfireball.net/projects/markdown/syntax).
+For example,
 
     Some **bold** text or _italic_ text
 
 Becomes, "Some **bold** text or _italic_ text".
 
-Use the usual `-` for lists and `##` for headings.
+Use the usual `-` for lists, `##` for headings, etc.
+
+## Metadata
+
+There are a couple of areas where extensions to basic Markdown are required to add metadata
+to content files. For example, to include a table of contents you would typically add a block
+such as the below:
+
+    ```{toctree}
+    :numbered:
+    1_Data_Types.md
+    2_Callables.md
+    3_etc...md
+    ```
+See the `index.md` files for examples.
+
+You can also add metadata to specify other directives. For example, this file starts with the
+below to stop Sphinx complaining that it is **NOT** in any table of contents, and to stop it
+being indexed.
+
+    ---
+    "orphan": true
+    "nosearch": true
+    ---
+
+See the [FrontMatter](https://myst-parser.readthedocs.io/en/latest/configuration.html#frontmatter-local-configuration)
+docs for more information.
 
 ## Admonitions
 
@@ -26,67 +57,86 @@ To add a note, use a fenced block as shown below.
 This will render as:
 
 ```{note}
-This is a note. Take note!
+This is a note.
 ```
 
-You may create a important blocks in a similar fashion, i.e.
+To flag open issues that need addressing, place them in an "attention" admonition,
+which will make them easy to search for. For example:
 
-    ```{important}
-    Put things that need the readers attention here.
+    ```{attention}
+    This section is deprecated and should be removed
     ```
 
 Which will render as:
 
-```{important}
-Put things that need the readers attention here.
+```{attention}
+This section is deprecated and should be removed
 ```
 
-See further types of blocks at
-<https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html>
+See the [admonition docs](<https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html>) for further info.
 
 ## Code blocks
 
-The Sphinx rendering engine uses Pygments for code blocks. These can be quite
-picky and cause build warnings if the syntax is not correct. In general, use
-` ```text ` code blocks for anything that may cause issues.
+The Sphinx rendering engine uses Pygments for code blocks. Use the LLVM syntax
+for LLVM IR constructs, e.g.
+
+    ```LLVM
+    %f = call %Callable* @__quantum__rt__callable_create(
+      [4 x void (%Tuple*, %Tuple*, %Tuple*)*]* @someOp,
+      [2 x void (%Tuple*, i32)*]* null,
+      %Tuple* null)
+    %g = call %__quantum__rt__callable_copy(%f)
+    call %__quantum__rt__callable_make_adjoint(%g)
+    ```
+
+Will render as:
+
+```LLVM
+%f = call %Callable* @__quantum__rt__callable_create(
+  [4 x void (%Tuple*, %Tuple*, %Tuple*)*]* @someOp,
+  [2 x void (%Tuple*, i32)*]* null,
+  %Tuple* null)
+%g = call %__quantum__rt__callable_copy(%f)
+call %__quantum__rt__callable_make_adjoint(%g)
+```
+
+The syntax parser can be quite picky and cause build warnings if the syntax is not correct.
+In general, use ` ```text ` code blocks for anything that may cause syntax parsing issues.
 
 ## LaTeX
 
-For compatibility with things like VS Code markdown preview and Jupyter
-notebooks, LaTeX enclosed in \$inline dollars\$ or \$\$ blocks is recommended.
+Sphinx and MyST support several ways of including LaTeX, which is rendered using
+[MathJax](https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#mathjax-and-math-parsing).
+For compatibility with tools like VS Code markdown preview and Jupyter notebooks, LaTeX
+enclosed in \$inline dollars\$ or \$\$ blocks are recommended.
 
-For example, `$(a+b)^2$` will become $(a+b)^2$, and a block like:
+For example, `$(a+b)^2$` will be rendered as $(a+b)^2$, and a block like:
 
     $$
-    \mbox{CNOT} =
-    \begin{align}
-        \left[\begin{matrix}
-            1 & 0 & 0 & 0 \\
-            0 & 1 & 0 & 0 \\
-            0 & 0 & 0 & 1 \\
-            0 & 0 & 1 & 0
-         \end{matrix}\right]
-    \end{align}
+    CNOT = \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0
+    \end{bmatrix}
     $$
 
 Will render as,
 
 $$
-\mbox{CNOT} =
-\begin{align}
-    \left[\begin{matrix}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 1 \\
-        0 & 0 & 1 & 0
-     \end{matrix}\right]
-\end{align}
+CNOT = \begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0
+\end{bmatrix}
 $$
 
-More elaborate equations such as the below should also render nicely. See
-<https://docs.mathjax.org/en/latest/input/tex/macros/index.html> for the
-macros supported.
+More elaborate equations such as the below should also render nicely.
 
 $$
-\oint_S {E_n dA = \frac{1}{{\varepsilon _0 }}} Q_{inside}
+\sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i -\mu)^2}
 $$
+
+See the [MathJax macros docs](https://docs.mathjax.org/en/latest/input/tex/macros/index.html)
+and [MathJax samples](https://www.mathjax.org/#samples) for more info.
