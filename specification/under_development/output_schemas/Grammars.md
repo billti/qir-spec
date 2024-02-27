@@ -28,7 +28,7 @@ output = (container / value)
 container = (tuple / array)
 ```
 
-### Labeled:
+### Labeled
 
 ```abnf
 value = output-start (result / bool / int / double) TAB label
