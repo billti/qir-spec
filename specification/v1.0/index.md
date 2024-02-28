@@ -1,6 +1,6 @@
 # QIR 1.0
 
-Version 1.0 of the QIR specification was publish on March 27th, 2024.
+Version 1.0 of the QIR specification was publish on `TBD`.
 
 ## Contents
 
