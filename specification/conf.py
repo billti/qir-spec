@@ -20,7 +20,7 @@ source_suffix = ['.rst', '.md']
 myst_heading_anchors = 3
 
 templates_path = ['_templates']
-exclude_patterns = ['under_development']
+exclude_patterns = []
 
 
 # -- Options for HTML output -------------------------------------------------

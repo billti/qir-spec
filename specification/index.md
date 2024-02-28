@@ -3,12 +3,15 @@
 ```{toctree}
 :hidden:
 v1.0/index.md
+under_development/index.md
 ```
 
 Welcome to the home page for the QIR specifications. QIR defines an
 [LLVM](https://llvm.org/)-based intermediate representation for quantum programs.
 
-[Version 1.0](v1.0/index) is the last completed release. Version 1.1 is in development.
+[Version 1.0](v1.0/index) is the last stable release. Version 1.1 is [under development](under_development/index).
+
+See the [authoring guidelines](authoring) for guidance on writing content.
 
 ## Motivation
 

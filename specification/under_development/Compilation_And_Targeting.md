@@ -29,8 +29,7 @@ hence define the following goals for the compiler infrastructure around it:
 - Allow making use of backend-specific instructions at the application level;
   <br /> Exposing access to backend-specific instructions is a valuable tool for
   research purposes. While we encourage libraries to be built against a hardware
-  agnostic default set of instructions ([Default
-  QIS](./quantum_instruction_sets/Default_QIS.md)), we aim for a simple
+  agnostic default set of instructions, we aim for a simple
   mechanism for deviating from that default for the purpose of experimenting
   with new hardware intrinsics and developing backend-specific compiler
   optimizations. These developments, in turn, inform what abstractions are

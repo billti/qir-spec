@@ -19,7 +19,7 @@ The first element of a record is always the record type, which can be any of the
 `HEADER` records are not emitted based on the contents of the QIR program. Backends are responsible for emitting them to include information about the output such as the schema it conforms to or the schema version.
 
 Examples of `HEADER` records:
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 ```
@@ -31,7 +31,7 @@ HEADER\tschema_version\t1.0
 `START` records are not emitted based on the contents of the QIR program. Backends are responsible for emitting them, with the corresponding `END` records, to enclose the output of a shot.
 
 An example of a `START` record:
-```log
+```text
 START
 ```
 
@@ -43,7 +43,7 @@ START
 `END` records are not emitted based on the contents of the QIR program. Backends are responsible for emitting them, with the corresponding `START` records, to enclose the output of a shot.
 
 An example of an `END` record:
-```log
+```text
 END 0
 ```
 
@@ -53,10 +53,10 @@ END 0
 - _attribute_name_ (required): A string that represents the name of an attribute of the program that emitted the output.
 - _attribute_value_ (optional): A string that represents the value associated to an attribute of the program that emitted the output.
 
-`METADATA` records are emitted based on the attributes present in the program's entry point function. For each one of these attributes, a `METADATA` record must be emitted. The [base profile required attributes section](../profiles/Base_Profile.md#attributes) specifies the minimum set of attributes that will be present. Specific examples can be found in the [notes for implementors](./Notes#examples).
+`METADATA` records are emitted based on the attributes present in the program's entry point function. For each one of these attributes, a `METADATA` record must be emitted. The [base profile required attributes section](../profiles/Base_Profile.md#attributes) specifies the minimum set of attributes that will be present. Specific examples can be found in the [notes for implementors](./Notes).
 
 Examples of `METADATA` records:
-```log
+```text
 METADATA\tentry_point
 METADATA\trequired_num_qubits\t5
 METADATA\trequired_num_results\t5
@@ -73,7 +73,7 @@ METADATA\trequired_num_results\t5
 `OUTPUT` records are emitted based on the [output recording function](../profiles/Base_Profile.md#output-recording) calls present in the program. The order in which `OUTPUT` records are emitted **must** match the order of the output recording function calls in the program.
 
 Examples of `OUTPUT` records:
-```log
+```text
 OUTPUT\tRESULT\t0
 OUTPUT\tRESULT\t1
 OUTPUT\tBOOL\ttrue
@@ -105,7 +105,7 @@ After the `HEADER` records, the output corresponding to each shot is expected. E
 - One `END` record.
 
 Example of the output emitted for three shots:
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -199,7 +199,7 @@ ret void
 
 The output for `3` shots would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -248,7 +248,7 @@ ret void
 
 The output for `3` shots would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -305,7 +305,7 @@ ret void
 
 The output for `3` shots would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -364,7 +364,7 @@ ret void
 
 The output for one shot would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START

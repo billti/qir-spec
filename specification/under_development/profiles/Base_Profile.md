@@ -19,7 +19,7 @@ a backend needs to support the following:
 1. It can execute a sequence of quantum instructions that transform the quantum
    state.
 2. It supports measuring the state of each qubit at the end of the program.
-3. It produces one of the specified [output schemas](../output_schemas/).
+3. It produces one of the specified output schemas.
 
 These functionalities are necessary and sufficient for computations that
 fundamentally consist of unitary transformations of the quantum state as well as
@@ -84,8 +84,7 @@ contains (at least) the following:
 
 - the definitions of the opaque `Qubit` and `Result` types
 - global constants that store [string labels](#output-recording) needed for
-  certain output schemas that may be ignored if the [output
-  schema](../output_schemas/) does not make use of them
+  certain output schemas that may be ignored if the output schema does not make use of them
 - the [entry point definition](#entry-point-definition) that contains the
   program logic
 - declarations of the [QIS functions](#quantum-instruction-set) used by the

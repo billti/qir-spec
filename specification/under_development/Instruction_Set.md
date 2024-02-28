@@ -24,7 +24,7 @@ These functions are forward declared in the IR and defined by the executing
 runtime. Which LLVM instructions and runtime functions are used/supported is
 captured in the QIR profile specification. The complete list of all runtime
 functions that are needed for executing QIR programs independent on which
-profile they have been compiled for is given in the [Library_Reference.md]().
+profile they have been compiled for is given in the Library_Reference.
 Most backends do not support the full set of runtime functions but merely a
 subset that is sufficient for the supported QIR profile(s). The [Base
 Profile](profiles/Base_Profile.md) defines the minimal set of runtime functions

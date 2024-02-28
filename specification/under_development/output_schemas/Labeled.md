@@ -5,7 +5,7 @@ This output schema is meant for backends that asynchronously emit output records
 The labeled output schema for asynchronous output emission is the same as the [ordered schema](./Ordered.md) with the following changes:
 - `OUTPUT` records `RESULT`, `BOOL`, `INT`, `DOUBLE`, `TUPLE`, and `ARRAY`,  have a fourth element indicating the label of the record.
 
-A grammar that defines the structure and valid values for this format is available [here](./Grammars.md#labeled-and-async).
+A grammar that defines the structure and valid values for this format is available [here](./Grammars.md#labeled).
 
 Labels are needed for reconstruction of asynchronous output emission and are assigned by the front-end QIR generator. Order is not important for the `OUTPUT` records within a `START`/`END` block. However, the responsibility of reconstructing the output based on the defined labeling format belongs to the party permforming the output labeling. The usage of `t0_0a` and `t2_2a` (and other values) are examples of a labeling format, and are only used as an example.
 
@@ -13,7 +13,7 @@ QIR consumers need to map the labels associated to each output recording call to
 
 Here's an example of the output emitted for a single shot:
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -101,7 +101,7 @@ ret void
 
 The output for `3` shots would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -150,7 +150,7 @@ ret void
 
 The output for `3` shots would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -207,7 +207,7 @@ ret void
 
 The output for `3` shots would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
@@ -266,7 +266,7 @@ ret void
 
 The output for one shot would have the following form (using fabricated `METADATA` records):
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START

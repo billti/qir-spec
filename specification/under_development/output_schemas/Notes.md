@@ -20,7 +20,7 @@ Note that `METADATA` records in the following examples are fabricated.
 
 The inferred type of the following shot is `TUPLE(ARRAY[RESULT], ARRAY[RESULT])`:
 
-```log
+```text
 START
 METADATA\tentry_point
 METADATA\trequired_num_qubits\t5
@@ -39,7 +39,7 @@ END\t0
 
 The inferred type of the following shot is also `TUPLE(ARRAY[RESULT], ARRAY[RESULT])` as the `ARRAY` entries are wrapped in a container:
 
-```log
+```text
 START
 METADATA\tentry_point
 METADATA\trequired_num_qubits\t5
@@ -59,7 +59,7 @@ END\t0
 
 The inferred type of the following shot is `TUPLE(ARRAY[RESULT], INT, DOUBLE)`:
 
-```log
+```text
 START
 METADATA\tentry_point
 METADATA\trequired_num_qubits\t5
@@ -146,7 +146,7 @@ attributes #1 = { "irreversible" }
 
 Ouput for a single shot:
 
-```log
+```text
 HEADER\tschema_name\tordered
 HEADER\tschema_version\t1.0
 START
